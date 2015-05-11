@@ -50,8 +50,12 @@ module DatabaseCleaner
         database[:path]
       end
 
+      def db_basic_auth
+        database[:auth]
+      end
+
       def session
-        @session ||= ::Neo4j::Session.open(db_type, db_path)
+        @session ||= ::Neo4j::Session.open(db_type, db_path, db_basic_auth)
       end
     end
   end
